@@ -20,16 +20,12 @@ export default {
   data() {
     return {
       selectedOption:'',
-      counter: 0
     }
   },
   methods: {
     selectUpdate(){
       this.$emit('update:option',this.selectedOption)
     },
-     add(){
-     return ++this.count
-    }
   },
 }
 </script>
