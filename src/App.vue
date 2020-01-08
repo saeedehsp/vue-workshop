@@ -6,6 +6,7 @@
     <div class="section">
       <div class="title"> reactivity and data-binding: </div>
       <div >{{message}}</div>
+      {{sayHi()}}
       <input type="text" v-model="message" placeholder="input">
     </div>
     <!-- event handling -->
@@ -38,7 +39,7 @@
     <!-- component example -->
     <div class="section">
       <div class="title"> component example:</div>
-      <dropdown @update:option="option" number="option"></dropdown>
+      <dropdown  @update:option="option" v-for="(item,index) in items" :key="index" :count=index number="option"></dropdown>
     </div>
   </div>
 </template>
@@ -56,14 +57,12 @@ export default {
       message:'',
       counter: 0,
       items:[{
-          id:0,
-          name: 'book'},
+        name: 'book'
+        },
         {
-          id:1,
          name: 'video'
         },
         {
-          id:2,
           name: 'game'
       }],
       type: 'a',
@@ -75,6 +74,9 @@ export default {
     option(value){
       // eslint-disable-next-line no-console
       console.log(value)
+    },
+    sayHi(){
+      alert('hiiii')
     }
   },
   computed: {
